@@ -1,4 +1,3 @@
-
 const video = document.getElementById('video');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -10,17 +9,10 @@ let countdown = 15;
 let countdownTimer;
 let recording = false;
 
-const shownKeypoints = [
-  "nose", "left_eye", "right_eye",
-  "left_ear", "right_ear",
-  "left_shoulder", "right_shoulder",
-  "left_elbow", "right_elbow"
-];
-
 function drawKeypoints(kps) {
   ctx.fillStyle = 'red';
   kps.forEach(kp => {
-    if (kp.score > 0.4 && shownKeypoints.includes(kp.name)) {
+    if (kp.score > 0.4) {
       ctx.beginPath();
       ctx.arc(kp.x, kp.y, 6, 0, 2 * Math.PI);
       ctx.fill();
